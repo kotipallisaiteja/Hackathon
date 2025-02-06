@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "Phishing Email Detector",
+  "version": "1.0",
+  "description": "Detect phishing emails in Gmail.",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "identity",
+    "notifications"
+  ],
+  "host_permissions": [
+    "https://mail.google.com/*"
+  ],
+  
+  "background": {
+    "service_worker": "background.js"
+  }
+  ,
+  "content_scripts": [
+    {
+      "matches": ["https://mail.google.com/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/2.jpg",
+      "48": "icons/1.jpg",
+      "128": "icons/3.jpg"
+    }
+  }
+}
